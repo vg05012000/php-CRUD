@@ -2,7 +2,7 @@
 
 include('Config/db.php');
 
-$response = $db->query('SELECT * FROM cereal');
+$response = $db->query('SELECT * FROM champions');
 
 ?>
 
@@ -43,7 +43,7 @@ $response = $db->query('SELECT * FROM cereal');
                 <?php while($data = $response->fetch()) : ?>
                 <tr>
                     <td><?php echo $data['name']; ?></td>
-                    <td><?php echo $data['category']; ?></td>
+                    <td><?php echo $data['class']; ?></td>
                     <td><a href="show.php?id=<?php echo $data['id']; ?>" class="btn">Voir</a></td>
                     <td><a href="update.php?id=<?php echo $data['id']; ?>" class="btn">Modifier</a></td>
                 </tr>

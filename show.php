@@ -2,7 +2,7 @@
 
 include('Config/db.php');
 
-$response = $db->query('SELECT * FROM cereal WHERE id=' . $_GET['id']);
+$response = $db->query('SELECT * FROM champions as c  JOIN skill as s ON c.id=s.id WHERE c.id=' . $_GET['id']  );
 $data = $response->fetch();
 if ($data === false) {
     header('Location: Template/error404.php');
@@ -39,15 +39,18 @@ if ($data === false) {
             <div class="card-content white-text">
               <span class="card-title">
                 <?php echo $data['name']; ?>
-                <span class="new badge" data-badge-caption=""><?php echo $data['category']; ?> </span>
+                <span class="new badge" data-badge-caption=""><?php echo $data['class']; ?> </span>
               </span>
               <p>
-                <span class="center-block">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, sunt delectus dicta veritatis quo animi autem unde, quod nobis. Labore eius blanditiis architecto, voluptatum consequatur, iure ipsa optio officia libero.
-                </span>
                 <br>
-                <?php echo $data['price']; ?> euros <br>
-                <?php echo $data['weight']; ?> kilos
+                <img src="<?php echo $data['image']; ?>" /> <br>
+                Dégats : <?php echo $data['damage']; ?> <br>
+                SKILLS:<br>
+                A - <?php echo $data['A'];?><br>
+                Z - <?php  echo$data['Z'];?> <br>
+                E - <?php  echo$data['E'];?> <br>
+                R - <?php echo$data['R']; ?>
+                
               </p>
             </div>
             <div class="card-action">
