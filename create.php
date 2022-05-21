@@ -1,30 +1,36 @@
 <?php
  //isset($_POST['image']) && $_POST['price'] !== '' && is_numeric($_POST['price']) &&
  //isset($_POST['damage']) && $_POST['weight'] !== '' && is_numeric($_POST['weight'])
+
+ //$req = $db->prepare('INSERT INTO champions (name, class, image, damage, A, Z, E, R) VALUES(:name, :class, :image, :damage, :A, :Z, :E, :R)');
+
     if (
       $_POST &&
       isset($_POST['name']) && $_POST['name'] !== '' &&
       isset($_POST['class']) && $_POST['class'] !== '' && 
       isset($_POST['image']) && $_POST['image'] !== '' &&
-      isset($_POST['damage']) && $_POST['damage'] !== '' &&
+      isset($_POST['damage']) && $_POST['damage'] !== ''&&
       isset($_POST['A']) && $_POST['A'] !== '' &&
       isset($_POST['Z']) && $_POST['Z'] !== '' &&
       isset($_POST['E']) && $_POST['E'] !== '' &&
-      isset($_POST['R']) && $_POST['R'] !== '' 
+      isset($_POST['R']) && $_POST['R']!== ''
 
     ) {
         include('Config/db.php');
+       
 
-        $req = $db->prepare('INSERT INTO lol(name, class, image, damage, A, Z, E, R) VALUES(:name, :class, :image, :damage, :A, :Z, :E, :R)');
+        $req = $db->prepare(
+            'INSERT INTO champions (name, class, image, damage) VALUES(:name, :class, :image, :damage);
+                INSERT INTO skill (A, Z, E, R) VALUES(:A, :Z, :E, :R)');
 
         $req->execute([
             'name' => $_POST['name'],
             'class' => $_POST['class'],
             'image' => $_POST['image'],
-            'damage' => $_POST['damage']
-            'A' => $_POST['A']
-            'Z' => $_POST['Z']
-            'E' => $_POST['E']
+            'damage' => $_POST['damage'],
+            'A' => $_POST['A'],
+            'Z' => $_POST['Z'],
+            'E' => $_POST['E'],
             'R' => $_POST['R']
         ]);
 
