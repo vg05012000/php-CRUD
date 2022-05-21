@@ -1,21 +1,31 @@
 <?php
-
+ //isset($_POST['image']) && $_POST['price'] !== '' && is_numeric($_POST['price']) &&
+ //isset($_POST['damage']) && $_POST['weight'] !== '' && is_numeric($_POST['weight'])
     if (
       $_POST &&
       isset($_POST['name']) && $_POST['name'] !== '' &&
-      isset($_POST['category']) && $_POST['category'] !== '' && 
-      isset($_POST['price']) && $_POST['price'] !== '' && is_numeric($_POST['price']) &&
-      isset($_POST['weight']) && $_POST['weight'] !== '' && is_numeric($_POST['weight'])
+      isset($_POST['class']) && $_POST['class'] !== '' && 
+      isset($_POST['image']) && $_POST['image'] !== '' &&
+      isset($_POST['damage']) && $_POST['damage'] !== '' &&
+      isset($_POST['A']) && $_POST['A'] !== '' &&
+      isset($_POST['Z']) && $_POST['Z'] !== '' &&
+      isset($_POST['E']) && $_POST['E'] !== '' &&
+      isset($_POST['R']) && $_POST['R'] !== '' 
+
     ) {
         include('Config/db.php');
 
-        $req = $db->prepare('INSERT INTO cereal(name, category, price, weight) VALUES(:name, :category, :price, :weight)');
+        $req = $db->prepare('INSERT INTO lol(name, class, image, damage, A, Z, E, R) VALUES(:name, :class, :image, :damage, :A, :Z, :E, :R)');
 
         $req->execute([
             'name' => $_POST['name'],
-            'category' => $_POST['category'],
-            'price' => $_POST['price'],
-            'weight' => $_POST['weight']
+            'class' => $_POST['class'],
+            'image' => $_POST['image'],
+            'damage' => $_POST['damage']
+            'A' => $_POST['A']
+            'Z' => $_POST['Z']
+            'E' => $_POST['E']
+            'R' => $_POST['R']
         ]);
 
         header('Location: index.php');
@@ -27,7 +37,7 @@
       $errors .= 'Nom invalide. ';
     }
 
-    if (isset($_POST['category']) && $_POST['category'] === '') {
+    if (isset($_POST['class']) && $_POST['class'] === '') {
       $errors .= 'Categorie invalide. ';
     }
 ?>
@@ -41,14 +51,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <title>Création d'un paquet de céréal</title>
+    <title>Création d'un champion</title>
 </head>
 <body>
     <nav class="teal">
         <div class="nav-wrapper container">
             <a href="#" class="brand-logo">Logo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.php">Liste des céréals</a></li>
+                <li><a href="index.php">Liste des champion</a></li>
                 <li><a href="create.php">Création d'un céréal</a></li>
             </ul>
         </div>
@@ -59,9 +69,14 @@
 
         <form action="" method="POST">
             Nom : <input type="text" name="name"> <br>
-            Categorie : <input type="text" name="category"> <br>
-            Prix : <input type="number" name="price" value="<?php echo isset($_POST['price']) ? $_POST['price'] : ''; ?>"> <br>
-            Poids en kl : <input type="number" name="weight"> <br>
+            Classe : <input type="text" name="class"> <br>
+            Image : <input type="text" name="image"> <br>
+            Damage : <input type="text" name="damage"> <br>
+            A : <input type="text" name="A"> <br>
+            Z : <input type="text" name="Z"> <br>
+            E : <input type="text" name="E"> <br>
+            R : <input type="text" name="R"> <br>
+            
 
             <span class="red white-text"><?php echo $errors; ?></span> <br>
 

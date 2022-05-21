@@ -29,27 +29,26 @@ $response = $db->query('SELECT * FROM champions');
     </nav>
 
     <div class="container">
-        <h1 class="teal-text">Liste des céreals</h1>
+        <h1 class="teal-text">Liste des Champions</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while($data = $response->fetch()) : ?>
-                <tr>
-                    <td><?php echo $data['name']; ?></td>
-                    <td><?php echo $data['class']; ?></td>
-                    <td><a href="show.php?id=<?php echo $data['id']; ?>" class="btn">Voir</a></td>
-                    <td><a href="update.php?id=<?php echo $data['id']; ?>" class="btn">Modifier</a></td>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
+      <div class="row">
+        <?php while($data = $response->fetch()) : ?>
+        <div class="col  s4 m3">
+          <div class="card">
+            <div class="card-image">
+              <span class="new badge" data-badge-caption=""><?php echo $data['class']; ?> </span>
+              <img src="<?php echo $data['image']; ?>" />
+              <span class="card-title"><?php echo $data['name']; ?></span>
+            </div>
+            <div class="card-action">
+              <a href="show.php?id=<?php echo $data['id']; ?>" class="btn">Voir</a>
+              <a href="update.php?id=<?php echo $data['id']; ?>" class="btn">Modifier</a>
+            </div>
+          </div>
+        </div>
+        <?php endwhile; ?>
+      </div>
+
     </div> 
 
     <footer class="page-footer teal">
@@ -70,7 +69,7 @@ $response = $db->query('SELECT * FROM champions');
       </div>
       <div class="footer-copyright">
         <div class="container">
-        © 2014 Copyright 
+        © 2022 Copyright 
         <a class="grey-text text-lighten-4 right" href="#!">FAQ?</a>
         </div>
       </div>
