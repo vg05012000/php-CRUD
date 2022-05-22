@@ -15,15 +15,25 @@ $response = $db->query('SELECT * FROM champions');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Cereal</title>
+    <link rel="stylesheet" href="boutton.css">
+    <title>lol</title>
 </head>
 <body>
     <nav class="teal">
         <div class="nav-wrapper container">
             <a href="#" class="brand-logo">Logo</a>
+
+            <!--
+              <button class="cybr-btn">
+                <a aria-hidden class="btn-découverte" href="">Découverte_</a>
+                <span aria-hidden class="cybr-btn__glitch">Découverte_</span>
+                <span aria-hidden class="cybr-btn__tag">R25</span>
+              </button>   
+------------------------boutton glitch effet cyberpunk --------------------------------------           
+                  -->
+                  
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.php">Liste des céréals</a></li>
+                <li><a href="index.php" >Liste des céréals</a></li>
                 <li><a href="create.php">Création d'un céréal</a></li>
             </ul>
         </div>
@@ -42,7 +52,7 @@ $response = $db->query('SELECT * FROM champions');
 
       <div class="row">
         <?php while($data = $response->fetch()) : ?>
-        <div class="col  s4 m4">
+        <div class="col-6 col-sm-3">
           <div class="card">
               <img class="card-img-top" src="<?php echo $data['image']; ?>" >
               <span class="card-title"><?php echo $data['name']; ?></span>
