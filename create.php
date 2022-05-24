@@ -56,32 +56,40 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style/style.css">
+    
     <title>Création d'un champion</title>
 </head>
 <body>
-    <nav class="teal">
-        <div class="nav-wrapper container">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.php">Liste des champion</a></li>
-                <li><a href="create.php">Création d'un céréal</a></li>
-            </ul>
-        </div>
-    </nav>
+    <?php include('Template/menu.php'); ?>
 
     <div class="container">
-        <h1 class="teal-text">Création d'un paquet de céréal</h1>
+        <h1 class="teal-text">Création d'un champion</h1>
 
         <form action="" method="POST">
-            Nom : <input type="text" name="name"> <br>
-            Classe : <input type="text" name="class"> <br>
-            Image : <input type="text" name="image"> <br>
-            Damage : <input type="text" name="damage"> <br>
-            A : <input type="text" name="A"> <br>
-            Z : <input type="text" name="Z"> <br>
-            E : <input type="text" name="E"> <br>
-            R : <input type="text" name="R"> <br>
+           <h2> Nom : </h2> <input type="text" name="name"> <br>
+           <h2>Classe : </h2>
+            <select name="class" class="form-select form-select-lg" mb-3>
+                <option value="" disabled selected>--sélection classe--</option>
+                <option value="COMBATTANT">COMBATTANT</option>
+                <option value="MAGE">MAGE</option>
+                <option value="ASSASSIN">ASSASSIN</option>TIREUR
+                <option value="TIREUR">TIREUR</option>SUPPORT
+                <option value="SUPPORT">SUPPORT</option>
+            </select> <br>
+            <h2>Lien d'image : </h2> <input type="text" name="image"> <br>
+            <h2>Type de dégâts :</h2>
+            <select name="damage" class="form-select form-select-lg" mb-3>
+                <option value="" disabled selected>--sélection dégats--</option>
+                <option value="AP">AP</option>
+                <option value="AD">AD</option>
+                <option value="Les deux">Les deux</option>
+            </select> <br>
+            <h2>Nom comptétence A : </h2> <input type="text" name="A"> <br>
+            <h2>Nom comptétence Z : </h2> <input type="text" name="Z"> <br>
+            <h2>Nom comptétence E : </h2> <input type="text" name="E"> <br>
+            <h2>Nom comptétence R : </h2> <input type="text" name="R"> <br>
             
 
             <span class="red white-text"><?php echo $errors; ?></span> <br>
@@ -91,5 +99,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html
