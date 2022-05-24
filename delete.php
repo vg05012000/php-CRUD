@@ -2,7 +2,7 @@
 
 include('Config/db.php');
 
-$req = $db->prepare('DELETE FROM cereal WHERE id=:id');
+$req = $db->prepare('DELETE FROM champions WHERE id=:id; DELETE FROM skill WHERE id=:id');
 $req->execute([
    'id' => $_GET['id']
 ]);

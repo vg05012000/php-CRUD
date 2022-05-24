@@ -2,7 +2,7 @@
 
 include('Config/db.php');
 
-$response = $db->query('SELECT * FROM champions as c JOIN skill as s ON c.id=s.id WHERE c.id=' . $_GET['id']  );
+$response = $db->query('SELECT * FROM champions as c JOIN skill as s ON c.id=s.id WHERE c.id=' . $_GET['id']);
 $data = $response->fetch();
 if ($data === false) {
     header('Location: Template/error404.php');
