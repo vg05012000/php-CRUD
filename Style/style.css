@@ -1,0 +1,9 @@
+.backmsi{
+    background: url("../image/fond1.png")  repeat, linear-gradient(to right top, #ed695c, #eb7e53, #e59250, #dea453, #d4b65e, #c9c367, #bccf75, #afda87, #9be499, #83ecaf, #67f4c9, #40fbe4);
+}
+.backmsi2{
+    background: url("../image/fond1.png") repeat, linear-gradient(to right, #ed885c, #e99658, #e2a458, #dbb15d, #d2bd65, #cbc667, #c2ce6c, #b7d773, #a7e075, #92e87b, #75f185, #45f993);
+}
+.backmsi3{
+    background: url("../image/fond1.png") repeat, linear-gradient(to bottom, #ed885c, #e99658, #e2a458, #dbb15d, #d2bd65, #cbc667, #c2ce6c, #b7d773, #a7e075, #92e87b, #75f185, #45f993);
+}

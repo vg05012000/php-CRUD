@@ -19,6 +19,7 @@ if ($data === false) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="Style/style.css">
 
     <title>Cereal <?php echo $data['name']; ?></title>
 </head>
@@ -35,7 +36,7 @@ if ($data === false) {
 
     <div class="row container">
         <div class="col s12">
-          <div class="card blue-grey darken-1">
+          <div class="card backmsi">
             <div class="card-content white-text">
               <span class="card-title">
                 <?php echo $data['name']; ?>
