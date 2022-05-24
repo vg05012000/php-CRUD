@@ -16,11 +16,12 @@ $response = $db->query('SELECT * FROM champions');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="boutton.css">
+    <link rel="stylesheet" href="Style/style.css">
     <title>lol</title>
 </head>
 <body>
-    <nav class="teal">
-        <div class="nav-wrapper container">
+    <nav class="teal backmsi2">
+        <div class="nav-wrapper container ">
             <a href="#" class="brand-logo">Logo</a>
 
             <!--
@@ -53,16 +54,15 @@ $response = $db->query('SELECT * FROM champions');
       <div class="row">
         <?php while($data = $response->fetch()) : ?>
         <div class="col-6 col-sm-3">
-          <div class="card">
-              <img class="card-img-top" src="<?php echo $data['image']; ?>" >
-              <span class="card-title"><?php echo $data['name']; ?></span>
-              </img>
-              <span class="badge bg-secondary" style="color:white; margin:0;"><?php echo $data['class']; ?> </span>
-            <div class="card-body">
-              <a class="btn btn-primary" href="show.php?id=<?php echo $data['id']; ?>" class="btn">Voir</a>
-              <a class="btn btn-primary" href="update.php?id=<?php echo $data['id']; ?>" class="btn">Modifier</a>
+            <div class="card backmsi3">
+              <img class="card-img-top" src="<?php echo $data['image']; ?>" style="padding:10px;" />
+              <div class="card-body">
+                <span class="card-title"><?php echo $data['name']; ?></span>
+                <span class="badge bg-secondary" style="color:white; margin:0;"><?php echo $data['class']; ?> </span> <br>
+                <a class="btn btn-primary" href="show.php?id=<?php echo $data['id']; ?>" class="btn">Voir</a>
+                <a class="btn btn-primary" href="update.php?id=<?php echo $data['id']; ?>" class="btn">Modifier</a>
+              </div>
             </div>
-          </div>
         </div>
         <?php endwhile; ?>
       </div>
