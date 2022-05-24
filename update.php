@@ -5,24 +5,34 @@
     if (
       $_POST &&
       isset($_POST['name']) && $_POST['name'] !== '' &&
-      isset($_POST['category']) && $_POST['category'] !== '' && 
-      isset($_POST['price']) && $_POST['price'] !== '' && is_numeric($_POST['price']) &&
-      isset($_POST['weight']) && $_POST['weight'] !== '' && is_numeric($_POST['weight'])
+      isset($_POST['class']) && $_POST['class'] !== '' && 
+      isset($_POST['image']) && $_POST['image'] !== '' &&
+      isset($_POST['damage']) && $_POST['damage'] !== ''&&
+      isset($_POST['A']) && $_POST['A'] !== '' &&
+      isset($_POST['Z']) && $_POST['Z'] !== '' &&
+      isset($_POST['E']) && $_POST['E'] !== '' &&
+      isset($_POST['R']) && $_POST['R']!== ''
     ) {
-        $req = $db->prepare('UPDATE cereal SET name=:name, category=:category, price=:price, weight=:weight WHERE id=:id');
+        $req = $db->prepare('UPDATE champions SET name=:name, class=:class, image=:image, damage=:damage WHERE id=:id; UPDATE skill SET A=:A, Z=:Z, E=:E, R=:R WHERE id=:id' );
 
         $req->execute([
             'name' => $_POST['name'],
-            'category' => $_POST['category'],
-            'price' => $_POST['price'],
-            'weight' => $_POST['weight'],
+            'class' => $_POST['class'],
+            'image' => $_POST['image'],
+            'damage' => $_POST['damage'],
+
+            'A' => $_POST['A'],
+            'Z' => $_POST['Z'],
+            'E' => $_POST['E'],
+            'R' => $_POST['R'],
+            
             'id' => $_GET['id']
         ]);
 
         header('Location: show.php?id=' . $_GET['id']);
         exit;
     } else {
-        $response = $db->query('SELECT * FROM cereal WHERE id=' . $_GET['id']);
+        $response = $db->query('SELECT * FROM champions as c JOIN skill as s ON c.id=s.id WHERE c.id=' . $_GET['id']);
         $data = $response->fetch();
     }
 
@@ -31,8 +41,8 @@
       $errors .= 'Nom invalide. ';
     }
 
-    if (isset($_POST['category']) && $_POST['category'] === '') {
-      $errors .= 'Categorie invalide. ';
+    if (isset($_POST['class']) && $_POST['class'] === '') {
+      $errors .= 'Classe invalide. ';
     }
 ?>
 
@@ -44,21 +54,40 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <title>Création d'un paquet de céréal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style/style.css">
+    
+    <title>Correction d'information</title>
 </head>
 <body>
     <?php include('Template/menu.php'); ?>
 
     <div class="container">
-        <h1 class="teal-text">Création d'un paquet de céréal</h1>
+        <h1 class="teal-text">Correction d'information</h1>
 
         <form action="" method="POST">
-            Nom : <input type="text" name="name" value="<?php echo $data['name']; ?>"> <br>
-            Categorie : <input type="text" name="category" value="<?php echo $data['category']; ?>"> <br>
-            Prix : <input type="number" name="price" value="<?php echo $data['price']; ?>"> <br>
-            Poids en kl : <input type="number" name="weight" value="<?php echo $data['weight']; ?>"> <br>
-
+            <h2> Nom :</h2> <input type="text" name="name" value="<?php echo $data['name']; ?>"> <br>
+            <h2> Classe :</h2>
+            <select name="class" class="form-select form-select-lg" mb-3>
+                <option value="" disabled selected><?php echo $data['class']; ?></option>
+                <option value="COMBATTANT">COMBATTANT</option>
+                <option value="MAGE">MAGE</option>
+                <option value="ASSASSIN">ASSASSIN</option>TIREUR
+                <option value="TIREUR">TIREUR</option>SUPPORT
+                <option value="SUPPORT">SUPPORT</option>
+            </select> <br>
+            <h2>Image : </h2> <input type="text" name="image" value="<?php echo $data['image']; ?>"> <br>
+            <h2>Type de dégâts :</h2>
+            <select name="damage" class="form-select form-select-lg" mb-3>
+                <option value="" disabled selected><?php echo $data['damage']; ?></option>
+                <option value="AP">AP</option>
+                <option value="AD">AD</option>
+                <option value="Les deux">Les deux</option>
+            </select> <br>
+            <h2> A : </h2> <input type="text" name="A" value="<?php echo $data['A']; ?>"> <br>
+            <h2> Z : </h2> <input type="text" name="Z" value="<?php echo $data['Z']; ?>"> <br>
+            <h2> E : </h2> <input type="text" name="E" value="<?php echo $data['E']; ?>"> <br>
+            <h2> R : </h2> <input type="text" name="R" value="<?php echo $data['R']; ?>"> <br>
             <span class="red white-text"><?php echo $errors; ?></span> <br>
 
             <input type="submit" value="Modifier" class="teal btn">
@@ -66,5 +95,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html

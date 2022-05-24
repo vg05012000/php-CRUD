@@ -20,36 +20,21 @@ $response = $db->query('SELECT * FROM champions');
     <title>lol</title>
 </head>
 <body>
-    <nav class="teal backmsi2">
-        <div class="nav-wrapper container ">
-            <a href="#" class="brand-logo">Logo</a>
-
-            <!--
-              <button class="cybr-btn">
-                <a aria-hidden class="btn-découverte" href="">Découverte_</a>
-                <span aria-hidden class="cybr-btn__glitch">Découverte_</span>
-                <span aria-hidden class="cybr-btn__tag">R25</span>
-              </button>   
-------------------------boutton glitch effet cyberpunk --------------------------------------           
-                  -->
-                  
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.php" >Liste des céréals</a></li>
-                <li><a href="create.php">Création d'un céréal</a></li>
-            </ul>
-        </div>
-    </nav>
-
+  <?php include('Template/menu.php'); ?>
+  <?php include('Config/db.php'); ?>
     <div class="container">
         <h1 class="teal-text">Liste des Champions</h1>
         <select name="class" class="form-select form-select-sm" mb-3>
-                <option value="" disabled selected>--sélection classe--</option>
+                <option value="" disabled selected>--Filtrer--</option>
                 <option value="COMBATTANT">COMBATTANT</option>
                 <option value="MAGE">MAGE</option>
                 <option value="ASSASSIN">ASSASSIN</option>TIREUR
                 <option value="TIREUR">TIREUR</option>SUPPORT
                 <option value="SUPPORT">SUPPORT</option>
             </select> <br>
+
+
+
 
       <div class="row">
         <?php while($data = $response->fetch()) : ?>
@@ -59,8 +44,8 @@ $response = $db->query('SELECT * FROM champions');
               <div class="card-body">
                 <span class="card-title"><?php echo $data['name']; ?></span>
                 <span class="badge bg-secondary" style="color:white; margin:0;"><?php echo $data['class']; ?> </span> <br>
-                <a class="btn btn-primary" href="show.php?id=<?php echo $data['id']; ?>" class="btn">Voir</a>
-                <a class="btn btn-primary" href="update.php?id=<?php echo $data['id']; ?>" class="btn">Modifier</a>
+                <a class="btn btn-secondary" href="show.php?id=<?php echo $data['id']; ?>" class="btn">Voir</a>
+                <a class="btn btn-secondary" href="update.php?id=<?php echo $data['id']; ?>" class="btn">Modifier</a>
               </div>
             </div>
         </div>
