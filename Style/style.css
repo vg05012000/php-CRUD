@@ -1,3 +1,10 @@
+*{
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+/*--------------------------Fond----------------------------*/
 .backmsi{
     background: url("../image/fond1.png")  repeat, linear-gradient(to right top, #ed695c, #eb7e53, #e59250, #dea453, #d4b65e, #c9c367, #bccf75, #afda87, #9be499, #83ecaf, #67f4c9, #40fbe4);
 }
@@ -7,3 +14,94 @@
 .backmsi3{
     background: url("../image/fond1.png") repeat, linear-gradient(to bottom, #ed885c, #e99658, #e2a458, #dbb15d, #d2bd65, #cbc667, #c2ce6c, #b7d773, #a7e075, #92e87b, #75f185, #45f993);
 }
+
+
+/*-----------------------------------------------------------*/
+.header{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 15px 3px;
+}
+.logo{
+height: 70px;
+}
+
+h1{
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    color: #2A2A29;
+}
+h2{
+    font-size: 20px;
+}
+
+
+.container{
+    background-color: transparent;
+}
+.boutton{
+    width: 130px;
+    background-color: #2A2A29;
+    color: white;
+}
+.boutton:hover{
+    color: grey;
+}
+
+
+
+
+/*--------------------------card----------------------------*/
+
+.card{
+    border: none;
+    margin-bottom: 25px;
+}
+    .card-title{
+        color: #2A2A29;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 17px;
+        font-weight: 500;
+        background-color:  white;
+        padding: 3px 5px;
+        border-radius: 5px;
+    }
+    .badge{
+        width: auto;
+        display:flex ;
+        font-weight: 500;
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        justify-content: center;
+    background-color: #2A2A29;
+    left: 50%;
+    }
+    .cdbody{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-bottom: 10px;
+        z-index: 1;
+    }
+
+
+
+
+/*--------------------------affiche----------------------------*/
+
+
+
+
+/*--------------------------Form----------------------------*/
+
+.form-control{
+    border: none;
+    border-bottom: #45f993 2px solid;
+    box-shadow: none;
+}
+
+.form-control:active{
+    border: none;
+    box-shadow: none;
+}
+
+
+/*------------footer-----------------------*/
