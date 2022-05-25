@@ -65,13 +65,13 @@
     <?php include('Template/menu.php'); ?>
 
     <div class="container">
-        <h1 class="teal-text">Correction d'information</h1>
+        <h1 >Correction d'information</h1>
 
         <form action="" method="POST">
             
-                <h2> Nom :</h2> <input type="text" name="name" value="<?php echo $data['name']; ?>" class="form-control"> <br>>
+                <h2> Nom :</h2> <input type="text" name="name" value="<?php echo $data['name']; ?>" > <br>>
                 <h2> Classe :</h2>
-                <select name="class" class="form-select " mb-3>
+                <select name="class" >
                     <option value="" disabled selected><?php echo $data['class']; ?></option>
                     <option value="COMBATTANT">COMBATTANT</option>
                     <option value="MAGE">MAGE</option>
@@ -79,21 +79,21 @@
                     <option value="TIREUR">TIREUR</option>SUPPORT
                     <option value="SUPPORT">SUPPORT</option>
                 </select> <br>
-                <h2>Image : </h2> <input type="text" name="image" value="<?php echo $data['image']; ?>" class="form-control"> <br>
+                <h2>Image : </h2> <input type="text" name="image" value="<?php echo $data['image']; ?>" > <br>
                 <h2>Type de dégâts :</h2>
-                <select name="damage" class="form-select " mb-3>
+                <select name="damage" >
                     <option value="" disabled selected><?php echo $data['damage']; ?></option>
                     <option value="AP">AP</option>
                     <option value="AD">AD</option>
                     <option value="Les deux">Les deux</option>
                 </select> <br>
-                <h2> A : </h2> <input type="text" name="A" value="<?php echo $data['A']; ?>" class="form-control"> <br>
-                <h2> Z : </h2> <input type="text" name="Z" value="<?php echo $data['Z']; ?>" class="form-control"> <br>
-                <h2> E : </h2> <input type="text" name="E" value="<?php echo $data['E']; ?>" class="form-control"> <br>
-                <h2> R : </h2> <input type="text" name="R" value="<?php echo $data['R']; ?>" class="form-control"> <br>
+                <h2> A : </h2> <input type="text" name="A" value="<?php echo $data['A']; ?>" > <br>
+                <h2> Z : </h2> <input type="text" name="Z" value="<?php echo $data['Z']; ?>" > <br>
+                <h2> E : </h2> <input type="text" name="E" value="<?php echo $data['E']; ?>" > <br>
+                <h2> R : </h2> <input type="text" name="R" value="<?php echo $data['R']; ?>" > <br>
                 <span><?php echo $errors; ?></span> <br>
 
-            <input type="submit" value="Modifier" class="btn boutton">
+            <input type="submit" value="Modifier" ">
         </form>
         
         <?php include('Template/footer.php'); ?> 
