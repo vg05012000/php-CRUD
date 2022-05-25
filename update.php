@@ -65,11 +65,11 @@
     <?php include('Template/menu.php'); ?>
 
     <div class="container">
-        <h1 >Correction d'information</h1>
+        <h1 class="teal-text">Correction d'information</h1>
 
         <form action="" method="POST">
             
-                <h2> Nom :</h2> <input type="text" name="name" value="<?php echo $data['name']; ?>" > <br>>
+                <h2> Nom :</h2> <input type="text" name="name" value="<?php echo $data['name']; ?>"> <br>
                 <h2> Classe :</h2>
                 <select name="class" >
                     <option value="" disabled selected><?php echo $data['class']; ?></option>
@@ -87,13 +87,13 @@
                     <option value="AD">AD</option>
                     <option value="Les deux">Les deux</option>
                 </select> <br>
-                <h2> A : </h2> <input type="text" name="A" value="<?php echo $data['A']; ?>" > <br>
-                <h2> Z : </h2> <input type="text" name="Z" value="<?php echo $data['Z']; ?>" > <br>
-                <h2> E : </h2> <input type="text" name="E" value="<?php echo $data['E']; ?>" > <br>
-                <h2> R : </h2> <input type="text" name="R" value="<?php echo $data['R']; ?>" > <br>
+                <h2> A : </h2> <input type="text" name="A" value="<?php echo $data['A']; ?>" class="form-control"> <br>
+                <h2> Z : </h2> <input type="text" name="Z" value="<?php echo $data['Z']; ?>" class="form-control"> <br>
+                <h2> E : </h2> <input type="text" name="E" value="<?php echo $data['E']; ?>" class="form-control"> <br>
+                <h2> R : </h2> <input type="text" name="R" value="<?php echo $data['R']; ?>" class="form-control"> <br>
                 <span><?php echo $errors; ?></span> <br>
 
-            <input type="submit" value="Modifier" ">
+            <input type="submit" value="Modifier" >
         </form>
         
         <?php include('Template/footer.php'); ?> 
@@ -101,4 +101,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-</html
+</html>

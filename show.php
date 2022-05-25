@@ -25,7 +25,7 @@ if ($data === false) {
 
     <title>Détail <?php echo $data['name']; ?></title>
 </head>
-<body>
+<body >
   <?php include('Template/menu.php'); ?>
 
     <div class=" container">
@@ -50,7 +50,7 @@ if ($data === false) {
             </div>
             <div class="card-action">
               <a href="update.php?id=<?php echo $data['id']; ?>" class="btn boutton">Editer</a>
-              <a class="btn boutton" href="#modalDelete">Supprimer</a>
+              <a href="delete.php?id=<?php echo $data['id']; ?>" class="btn boutton" style="background-color:#ed695c;">Supprimer</a>
             </div>
           </div>
         </div>
@@ -58,28 +58,10 @@ if ($data === false) {
     <?php include('Template/footer.php'); ?>
     
 
-    <!-- Modal Structure -->
-    <div id="modalDelete" class="modal">
-      <div class="modal-content">
-        <h4>Validation de la suppression</h4>
-        <p>Etes-vous sûr de vouloir supprimer ce jolie paquet de céréal ???</p>
-      </div>
-      <div class="modal-footer">
-        <a href="delete.php?id=<?php echo $data['id']; ?>" class="btn white red-text">Supprimer</a>
-      </div>
-    </div>
-
-<!------Test--------------------->
-
           
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.modal');
-        var instances = M.Modal.init(elems);
-      });
-    </script>
 </body>
 </html>
 
