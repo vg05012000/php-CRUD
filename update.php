@@ -72,7 +72,7 @@
             </div>
             <div class="form-outline mb-4">
                 <h2> Classe :</h2>
-                <select name="class" class="form-select form-select-lg" mb-3>
+                <select name="class" class="form-select " mb-3>
                     <option value="" disabled selected><?php echo $data['class']; ?></option>
                     <option value="COMBATTANT">COMBATTANT</option>
                     <option value="MAGE">MAGE</option>
@@ -86,7 +86,7 @@
             </div>
             <div class="form-outline mb-4">
                 <h2>Type de dégâts :</h2>
-                <select name="damage" class="form-select form-select-lg" mb-3>
+                <select name="damage" class="form-select " mb-3>
                     <option value="" disabled selected><?php echo $data['damage']; ?></option>
                     <option value="AP">AP</option>
                     <option value="AD">AD</option>
@@ -103,6 +103,7 @@
 
             <input type="submit" value="Modifier" class="btn boutton">
         </form>
+        
         <?php include('Template/footer.php'); ?> 
     </div>
 

@@ -74,7 +74,7 @@
             </div>
             <div class="form-outline mb-4">
                 <h2>Classe : </h2>
-                <select name="class" class="form-select form-select-lg" mb-3>
+                <select name="class" class="form-select " mb-3>
                     <option value="" disabled selected>--sélection classe--</option>
                     <option value="COMBATTANT">COMBATTANT</option>
                     <option value="MAGE">MAGE</option>
@@ -88,7 +88,7 @@
             </div>
             <div class="form-outline mb-4">
                 <h2>Type de dégâts :</h2>
-                <select name="damage" class="form-select form-select-lg" mb-3>
+                <select name="damage" class="form-select" mb-3>
                     <option value="" disabled selected>--sélection dégats--</option>
                     <option value="AP">AP</option>
                     <option value="AD">AD</option>
@@ -107,8 +107,8 @@
 
             <input type="submit" value="Envoyer" class="btn boutton">
         </form>
-
         <?php include('Template/footer.php'); ?> 
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
