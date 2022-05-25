@@ -18,29 +18,24 @@ if ($data === false) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="icon" href="./image/LogoIco.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
-    <title>Cereal <?php echo $data['name']; ?></title>
+    <title>Détail <?php echo $data['name']; ?></title>
 </head>
 <body>
-    <nav class="teal">
-        <div class="nav-wrapper container">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.php">Liste des céréals</a></li>
-                <li><a href="create.php">Création d'un céréal</a></li>
-            </ul>
-        </div>
-    </nav>
+  <?php include('Template/menu.php'); ?>
 
-    <div class="row container">
+    <div class=" container">
         <div class="col s12">
-          <div class="card blue-grey darken-1">
+          <div class="card backmsi" style=" box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;padding:10px;">
             <div class="card-content white-text">
               <span class="card-title">
                 <?php echo $data['name']; ?>
-                <span class="new badge" data-badge-caption=""><?php echo $data['class']; ?> </span>
               </span>
+              <span class="new badge" data-badge-caption=""><?php echo $data['class']; ?> </span>
               <p>
                 <br>
                 <img src="<?php echo $data['image']; ?>" /> <br>
@@ -54,12 +49,14 @@ if ($data === false) {
               </p>
             </div>
             <div class="card-action">
-              <a href="update.php?id=<?php echo $data['id']; ?>" class="btn white teal-text">Editer</a>
-              <a class="btn white red-text modal-trigger" href="#modalDelete">Supprimer</a>
+              <a href="update.php?id=<?php echo $data['id']; ?>" class="btn boutton">Editer</a>
+              <a class="btn boutton" href="#modalDelete">Supprimer</a>
             </div>
           </div>
         </div>
     </div>
+    <?php include('Template/footer.php'); ?>
+    
 
     <!-- Modal Structure -->
     <div id="modalDelete" class="modal">
@@ -71,9 +68,12 @@ if ($data === false) {
         <a href="delete.php?id=<?php echo $data['id']; ?>" class="btn white red-text">Supprimer</a>
       </div>
     </div>
+
+<!------Test--------------------->
+
           
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.modal');
